@@ -9,36 +9,24 @@ public class CreateAccountTests extends TestBase {
     @BeforeMethod
     public void ensurePrecondition() {
         if (!isElementPresent(By.cssSelector(".ico-register"))) {
-            driver.findElement(By.cssSelector(".ico-login).click()"));
+            click(By.cssSelector(".ico-logout"));
         }
-        driver.findElement(By.cssSelector(".ico-register")).click();
+        click(By.cssSelector(".ico-register"));
     }
 
     @Test
-    public void newUserRegistrationPositiveTest() {
-        driver.findElement(By.cssSelector("#FirstName")).click();
-        driver.findElement(By.cssSelector("#FirstName")).clear();
-        driver.findElement(By.cssSelector("#FirstName")).sendKeys("Nata");
+    public void exictedUserRegistrationNegativeTest() {
+        type(By.cssSelector("#FirstName"), "Nata");
+        type(By.cssSelector("#LastName"), "Bo");
+        type(By.cssSelector("#Email"), "nfudj33@gmail.com");
+        type(By.cssSelector("#Password"), "Olna123488$");
+        type(By.cssSelector("#ConfirmPassword"), "Olna123488$");
 
-        driver.findElement(By.cssSelector("#LastName")).click();
-        driver.findElement(By.cssSelector("#LastName")).clear();
-        driver.findElement(By.cssSelector("#LastName")).sendKeys("Bo");
+        click(By.cssSelector("#register-button"));
 
-        driver.findElement(By.cssSelector("#Email")).click();
-        driver.findElement(By.cssSelector("#Email")).clear();
-        driver.findElement(By.cssSelector("#Email")).sendKeys("nbo007@gmail.com");
-
-        driver.findElement(By.cssSelector("#Password")).click();
-        driver.findElement(By.cssSelector("#Password")).clear();
-        driver.findElement(By.cssSelector("#Password")).sendKeys("Olna123488$");
-
-        driver.findElement(By.cssSelector("#ConfirmPassword")).click();
-        driver.findElement(By.cssSelector("#ConfirmPassword")).clear();
-        driver.findElement(By.cssSelector("#ConfirmPassword")).sendKeys("Olna123488$");
-
-        driver.findElement(By.cssSelector("#register-button")).click();
-        Assert.assertTrue(isElementPresent2(By.cssSelector(".ico-login")));
+        Assert.assertTrue(isElementPresent2(By.xpath("//li[contains(.,'The specified email already exists')]")));
 
     }
+
 
 }

@@ -37,9 +37,18 @@ public class TestBase {
             return false;
         }
     }
+    public void click(By locator) {
+        driver.findElement(locator).click();
+    }
 
-    @AfterMethod(enabled = false)
+    public void type(By locator, String text) {
+        click(locator);
+        driver.findElement(locator).clear();
+        driver.findElement(locator).sendKeys(text);
+    }
+    @AfterMethod//(enabled = false)
     public void tearDown(){
         driver.quit();
-  }
+    }
+
 }
