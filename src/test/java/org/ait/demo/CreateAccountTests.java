@@ -8,23 +8,18 @@ import org.testng.annotations.Test;
 public class CreateAccountTests extends TestBase {
     @BeforeMethod
     public void ensurePrecondition() {
-        if (!isElementPresent(By.cssSelector(".ico-register"))) {
-            click(By.cssSelector(".ico-logout"));
+        if (!app.getUser().isRegisterLinkPresent()) {
+            app.getUser().clickOnLogoutButton();
         }
-        click(By.cssSelector(".ico-register"));
+        app.getUser().clickOnRegisterLink();
     }
 
     @Test
     public void exictedUserRegistrationNegativeTest() {
-        type(By.cssSelector("#FirstName"), "Nata");
-        type(By.cssSelector("#LastName"), "Bo");
-        type(By.cssSelector("#Email"), "nfudj33@gmail.com");
-        type(By.cssSelector("#Password"), "Olna123488$");
-        type(By.cssSelector("#ConfirmPassword"), "Olna123488$");
+        app.getUser().fillLoginRegistrationForm("Nata", "Bo", "nfudj33@gmail.com", "Olna123488$");
+        app.getUser().clickOnRegistrationButton();
 
-        click(By.cssSelector("#register-button"));
-
-        Assert.assertTrue(isElementPresent2(By.xpath("//li[contains(.,'The specified email already exists')]")));
+        Assert.assertTrue(app.getUser().isElementPresent2(By.xpath("//li[contains(.,'The specified email already exists')]")));
 
     }
 
