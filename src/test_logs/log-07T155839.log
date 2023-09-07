@@ -1,0 +1,5 @@
+519  [main] INFO  org.testng.internal.Utils -- [TestNG] Running:
+  C:\Users\bodna\AppData\Local\JetBrains\IdeaIC2022.3\temp-testng-customsuite.xml
+
+4629 [main] INFO  org.ait.demo.TestBase -- Start test
+7756 [main] INFO  org.ait.demo.TestBase -- Stop test
