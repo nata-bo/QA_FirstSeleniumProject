@@ -3,6 +3,9 @@ package org.ait.demo.fw;
 import org.ait.demo.models.User;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
 
 public class UserHelper extends HelperBase{
     public UserHelper(WebDriver driver) {
@@ -25,12 +28,24 @@ public class UserHelper extends HelperBase{
         click(By.cssSelector("#register-button"));
     }
 
-    public void fillLoginRegistrationForm(String name, String surname, String email, String password) {
-        type(By.cssSelector("#FirstName"), name);
-        type(By.cssSelector("#LastName"), surname);
-        type(By.cssSelector("#Email"),email);
-        type(By.cssSelector("#Password"),password);
-        type(By.cssSelector("#ConfirmPassword"), password);
+    public void fillLoginRegistrationForm(User user) {
+        type(By.cssSelector("#FirstName"), user.getName());
+        type(By.cssSelector("#LastName"), user.getSurname());
+        type(By.cssSelector("#Email"), user.getEmail());
+        type(By.cssSelector("#Password"), user.getPassword());
+        type(By.cssSelector("#ConfirmPassword"), user.getConfirmPassword());
+    }
+    public void fillLoginRegistrationFormForScreencast(User user) {
+        type(By.cssSelector("#FirstName"),user.getName() );
+        pause(500);
+        type(By.cssSelector("#LastName"), user.getSurname());
+        pause(500);
+        type(By.cssSelector("#Email"), user.getEmail());
+        pause(500);
+        type(By.cssSelector("#Password"), user.getPassword());
+        pause(500);
+        type(By.cssSelector("#ConfirmPassword"), user.getConfirmPassword());
+        pause(1000);
     }
 
     public void clickOnLoginLink() {
@@ -42,6 +57,10 @@ public class UserHelper extends HelperBase{
     }
 
     public void clickOnLoginButton() {
+        click(By.cssSelector(".login-button"));
+    }
+    public void clickOnLoginButtonForScreenshot() {
+        pause(1000);
         click(By.cssSelector(".login-button"));
     }
 
@@ -58,5 +77,13 @@ public class UserHelper extends HelperBase{
         clickOnLoginLink();
         fillLoginForm(new User().setEmail("nfudj33@gmail.com").setPassword("Olna123488$"));
         clickOnLoginButton();
+    }
+    public boolean isUserAdded(String text){
+        List<WebElement> users =  driver.findElements(By.cssSelector("div.header-links a[href='/customer/info']"));
+        for (WebElement el: users){
+            if(el.getText().contains(text))
+                return  true;
+        }
+        return false;
     }
 }
