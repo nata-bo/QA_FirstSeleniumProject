@@ -8,6 +8,7 @@
             <class name="org.ait.demo.LoginTests">
                 <methods>
                     <exclude name=".*Negative.*"/>
+                    <exclude name=".*Screencast.*"/>
                 </methods>
             </class>
             <class name="org.ait.demo.AddProductTest" />

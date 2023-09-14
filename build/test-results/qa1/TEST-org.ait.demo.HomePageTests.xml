@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.ait.demo.HomePageTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-09-08T10:49:34" hostname="NATA-BOD" time="0.02">
+  <properties/>
+  <testcase name="isNewsletterPresentTest" classname="org.ait.demo.HomePageTests" time="0.02"/>
+  <system-out><![CDATA[12:49:34.049 [Test worker] INFO  org.ait.demo.TestBase -- Start test
+12:49:34.073 [Test worker] INFO  org.ait.demo.TestBase -- Stop test
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

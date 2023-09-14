@@ -13,6 +13,7 @@ public class ProductHelper extends HelperBase{
         click(By.xpath("//h2[@class='product-title']/a[contains(., 'expensive')]"));
     }
     public WebElement isProductPresentInCart() {
-        return driver.findElement(By.cssSelector(".cart-item-row"));
+        WebElement product = driver.findElement(By.cssSelector(".cart-item-row"));
+        return product;
     }
 }

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.ait.demo.AddProductTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-09-08T10:49:48" hostname="NATA-BOD" time="2.081">
+  <properties/>
+  <testcase name="addProductPositiveTest" classname="org.ait.demo.AddProductTest" time="2.081"/>
+  <system-out><![CDATA[12:49:36.062 [Test worker] INFO  org.ait.demo.TestBase -- Start test
+12:49:50.197 [Test worker] INFO  org.ait.demo.TestBase -- Stop test
+]]></system-out>
+  <system-err><![CDATA[JavaScript warning: https://demowebshop.tricentis.com/Scripts/jquery-1.10.2.min.js, line 19: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+]]></system-err>
+</testsuite>

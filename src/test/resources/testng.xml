@@ -4,7 +4,11 @@
 
     <test name="Quick" >
         <classes>
-            <class name="org.ait.demo.CreateAccountTests" />
+            <class name="org.ait.demo.CreateAccountTests" >
+            <methods>
+                <exclude name=".*DataProvider.*"/>
+            </methods>
+            </class>
         </classes>
     </test>
 
